@@ -17,5 +17,5 @@ export class NotasComponent {
 
   escopoNotas = signal('');
   mostrarBotoes = signal(false);
-  notas: ModeloNota[] = [];
+  notas = signal<ModeloNota[]>([]);
 }

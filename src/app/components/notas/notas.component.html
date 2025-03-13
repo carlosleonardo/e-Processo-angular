@@ -47,7 +47,7 @@
                 }
               </tr>
               <tr>
-                @for(nota of notas; track nota.id) {
+                @for(nota of notas(); track nota.id) {
                 <app-nota
                   [nota]="nota"
                   [mostrarBotoes]="mostrarBotoes()"
