@@ -1,0 +1,241 @@
+@import url("global.css");
+BODY {
+    /*
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    FONT: 12px/1.8em Arial, Helvetica;
+    PADDING-TOP: 0px;
+*/
+    background-repeat: repeat-x;
+    background-position: left top;
+    background-attachment: fixed;
+}
+#top {
+    /*
+    LEFT: 720px;
+    min-width: 792px;
+*/
+    height: 102px;
+    background: url(../img/estilo/top_right_1024.gif) no-repeat right top;
+}
+#top2 {
+    /* 
+    LEFT: 0px;
+    POSITION: absolute;
+    TOP: 0px;
+*/
+
+    /*	
+    HEIGHT: 102px;
+    WIDTH: 260px;
+    BACKGROUND: url(../img/estilo/logo_final.gif) no-repeat left top;
+*/
+
+    height: 102px;
+    width: 476px;
+    background: url(../img/estilo/logo_final_carf.gif) no-repeat left top;
+}
+#menu {
+    top: 80px;
+    height: 21px;
+}
+
+SPAN#btns_iframe {
+    left: -25px;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    top: 0px;
+    height: 300px;
+    max-height: 300px;
+    border: solid 1px blue;
+}
+
+.classRaiz {
+    font-size: 8pt;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.classCabecalho {
+    border-top: #588cb0 1px solid;
+    margin-top: 10px;
+    font-size: 8pt;
+    margin-bottom: 10px;
+    width: 90%;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.classCriterios {
+    border-top: #588cb0 1px solid;
+    font-size: 8pt;
+    border-bottom: #588cb0 1px solid;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    background-color: #d7e6f3;
+}
+.classCriterio {
+    font-size: 7pt;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.classDados {
+    border-right: 0px;
+    padding-right: 0px;
+    border-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    margin: 0px;
+    border-left: 0px;
+    width: 90%;
+    padding-top: 0px;
+    border-bottom: 0px;
+}
+.classTituloColuna {
+    border-right: white 1px solid;
+    border-top: white 1px solid;
+    font-size: 8pt;
+    border-left: white 1px solid;
+    color: black;
+    border-bottom: white 1px solid;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    background-color: #d7e6f3;
+    text-align: center;
+}
+.classTituloColuna {
+    border-right: 1px solid;
+    border-top: 1px solid;
+    font-size: 8pt;
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.classColunaR {
+    font-size: 7pt;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: right;
+}
+.classColunaL {
+    font-size: 7pt;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+.classColunaC {
+    font-size: 7pt;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.classTituloAgrupamento {
+    font-size: 8pt;
+    vertical-align: bottom;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    height: 20px;
+}
+.classTotal {
+    font-weight: bold;
+    font-size: 7pt;
+    vertical-align: bottom;
+    border-bottom: #588cb0 1px solid;
+    height: 10px;
+    text-align: left;
+}
+.texto10 {
+    font-size: 10pt;
+}
+.texto12b {
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+.btnDinamico {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    border-right: #003876 1px solid;
+    border-top: #003876 1px solid;
+    border-left: #003876 1px solid;
+    width: auto;
+    height: 18px;
+    border-bottom: #003876 1px solid;
+    background-color: #e1e7ec;
+}
+
+.processoPapelNegrito a:link {
+    font-weight: bold;
+    color: blue;
+}
+
+.processoPapel a:link {
+    color: blue;
+}
+
+.processoPapel a:visited {
+    color: #800080;
+}
+
+.processoDigitalNegrito a:link {
+    font-weight: bold;
+    color: blue;
+}
+
+.linhaNegrito {
+    font-weight: bold;
+}
+
+.processoDigital a:link {
+    color: blue;
+}
+
+.processoDigital a:visited {
+    color: #800080;
+}
+
+.processoDigitalSigilosoNegrito a:link {
+    font-weight: bold;
+    color: blue;
+    font-style: italic;
+}
+
+.processoDigitalSigiloso a:link {
+    color: blue;
+    font-style: italic;
+}
+
+.processoDigitalSigiloso a:visited {
+    color: #800080;
+    font-style: italic;
+}
+
+.nomeAtividade a:link {
+    text-decoration: none;
+    color: #000000;
+}
+
+.nomeAtividade a:visited {
+    text-decoration: none;
+    color: #000000;
+}
+
+.nomeAtividade a:active {
+    text-decoration: none;
+    color: #000000;
+}
+
+.nomeAtividade a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
+.infoEquipeSorteio {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.divbtns_iframe {
+    width: 50%;
+    text-align: left;
+    height: 620px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: solid 0px blue;
+    position: absolute;
+    left: -25px;
+    word-break: break-all;
+}
