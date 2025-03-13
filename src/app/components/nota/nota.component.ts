@@ -10,4 +10,5 @@ import { ModeloNota } from '../../modelos/nota';
 export class NotaComponent {
   nota = input.required<ModeloNota>();
   mostrarBotoes = input.required<boolean>();
+  escopoNota = input.required<string>();
 }

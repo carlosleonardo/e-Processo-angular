@@ -1,1 +1,15 @@
-<p>nota works!</p>
+<div>
+  <td>{{ nota().nota }}</td>
+  <td>{{ nota().dataRegistro.toLocaleDateString() }}</td>
+  @if(escopoNota() !== 'NM') {
+  <td>{{ nota().autor }}</td>
+  } @if(mostrarBotoes()) { @if(nota().permissaoAlteracao) {
+  <td>
+    <button type="button" class="btn">Alterar</button>
+  </td>
+  } @if(nota().permissaoExclusao) {
+  <td>
+    <button type="button" class="btn">Excluir</button>
+  </td>
+  } }
+</div>

@@ -1,19 +1,31 @@
 <div id="main">
-  <p class="titulo">Notas de {{ escopoNotas }}</p>
+  <p class="titulo">Notas de {{ escopoNotas() }}</p>
   <table width="100%;" style="text-align: center">
     <tbody>
       <tr>
-        <textarea
-          cols="41"
-          rows="4"
-          maxlength="2000"
-          style="width: 100%"
-          placeholder="Digite sua nota"
-        ></textarea>
+        <td>
+          <form id="form1" [formGroup]="formNota">
+            <textarea
+              cols="41"
+              rows="4"
+              maxlength="2000"
+              style="width: 100%"
+              placeholder="Digite sua nota"
+              formControlName="textoNota"
+            ></textarea>
+          </form>
+        </td>
       </tr>
       <tr>
         <td style="text-align: center">
-          <button type="button" class="btn">Incluir</button>
+          <button
+            type="button"
+            class="btn"
+            [disabled]="formNota.invalid"
+            form="form1"
+          >
+            Incluir
+          </button>
         </td>
       </tr>
     </tbody>
@@ -28,9 +40,9 @@
               <tr>
                 <td class="tr"><b>Histórico de notas</b></td>
                 <td class="tr"><b>Data de Registro</b></td>
-                @if(escopoNotas !== 'NM') {
+                @if(escopoNotas() !== 'NM') {
                 <td class="tr" style="width: 25%"><b>Autor</b></td>
-                } @if(mostrarBotoes) {
+                } @if(mostrarBotoes()) {
                 <td class="tr" style="width: 1%"></td>
                 }
               </tr>
@@ -38,7 +50,8 @@
                 @for(nota of notas; track nota.id) {
                 <app-nota
                   [nota]="nota"
-                  [mostrarBotoes]="mostrarBotoes"
+                  [mostrarBotoes]="mostrarBotoes()"
+                  [escopoNota]="escopoNotas()"
                 ></app-nota>
                 }
               </tr>
