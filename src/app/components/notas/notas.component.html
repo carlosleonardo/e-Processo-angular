@@ -23,6 +23,7 @@
             class="btn"
             [disabled]="formNota.invalid"
             form="form1"
+            (click)="incluir()"
           >
             Incluir
           </button>
@@ -32,32 +33,26 @@
   </table>
   <br />
   <table style="width: 100%">
-    <tbody>
+    <thead>
       <tr>
-        <td>
-          <table style="width: 100%">
-            <tbody>
-              <tr>
-                <td class="tr"><b>Histórico de notas</b></td>
-                <td class="tr"><b>Data de Registro</b></td>
-                @if(escopoNotas() !== 'NM') {
-                <td class="tr" style="width: 25%"><b>Autor</b></td>
-                } @if(mostrarBotoes()) {
-                <td class="tr" style="width: 1%"></td>
-                }
-              </tr>
-              <tr>
-                @for(nota of notas(); track nota.id) {
-                <app-nota
-                  [nota]="nota"
-                  [mostrarBotoes]="mostrarBotoes()"
-                  [escopoNota]="escopoNotas()"
-                ></app-nota>
-                }
-              </tr>
-            </tbody>
-          </table>
-        </td>
+        <td class="tr"><b>Histórico de notas</b></td>
+        <td class="tr"><b>Data de Registro</b></td>
+        @if(escopoNotas() !== 'NM') {
+        <td class="tr" style="width: 25%"><b>Autor</b></td>
+        } @if(mostrarBotoes()) {
+        <td class="tr" style="width: 1%"></td>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tr">
+        @for(nota of notas(); track nota.id) {
+        <app-nota
+          [nota]="nota"
+          [mostrarBotoes]="mostrarBotoes()"
+          [escopoNota]="escopoNotas()"
+        ></app-nota>
+        }
       </tr>
     </tbody>
   </table>
