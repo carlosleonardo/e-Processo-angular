@@ -4,7 +4,7 @@ import { NotasService } from '../../servicos/notas.service';
 import { not } from 'rxjs/internal/util/not';
 
 @Component({
-  selector: 'app-nota',
+  selector: 'tr[app-nota]',
   imports: [],
   templateUrl: './nota.component.html',
   styleUrl: './nota.component.css',

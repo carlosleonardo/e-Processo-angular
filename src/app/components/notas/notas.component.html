@@ -45,15 +45,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="tr">
-        @for(nota of notas(); track nota.id) {
-        <app-nota
-          [nota]="nota"
-          [mostrarBotoes]="mostrarBotoes()"
-          [escopoNota]="escopoNotas()"
-        ></app-nota>
-        }
-      </tr>
+      @for(nota of notas(); track nota.id) {
+      <tr
+        app-nota
+        [nota]="nota"
+        [mostrarBotoes]="mostrarBotoes()"
+        [escopoNota]="escopoNotas()"
+      ></tr>
+      }
     </tbody>
   </table>
 </div>
