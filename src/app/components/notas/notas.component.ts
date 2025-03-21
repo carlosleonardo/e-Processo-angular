@@ -18,8 +18,8 @@ export class NotasComponent {
 
   escopoNotas = signal('');
   mostrarBotoes = signal(false);
-  notas = signal<ModeloNota[]>([]);
-  private servicoNotas = inject(NotasService);
+
+  servicoNotas = inject(NotasService);
   usuarioLogado = 'Carlos Leonardo';
 
   incluir() {
@@ -30,9 +30,6 @@ export class NotasComponent {
       permissaoAlteracao: true,
       permissaoExclusao: true,
     });
-    this.obterNotas();
-  }
-  obterNotas() {
-    this.notas.set(this.servicoNotas.obterNotas());
+    this.formNota.reset();
   }
 }

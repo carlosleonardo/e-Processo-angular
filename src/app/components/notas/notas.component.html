@@ -10,7 +10,7 @@
               rows="4"
               maxlength="2000"
               style="width: 100%"
-              placeholder="Digite sua nota"
+              placeholder="Digite sua nota de até 2000 caracteres"
               formControlName="textoNota"
             ></textarea>
           </form>
@@ -45,7 +45,7 @@
       </tr>
     </thead>
     <tbody>
-      @for(nota of notas(); track nota.id) {
+      @for(nota of servicoNotas.notas(); track nota.id) {
       <tr
         app-nota
         [nota]="nota"
