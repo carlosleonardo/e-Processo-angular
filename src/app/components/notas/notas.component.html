@@ -47,6 +47,7 @@
     <tbody>
       @for(nota of servicoNotas.notas(); track nota.id) {
       <tr
+        [className]="$odd ? 'tr' : ''"
         app-nota
         [nota]="nota"
         [mostrarBotoes]="mostrarBotoes()"
