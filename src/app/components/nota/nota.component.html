@@ -8,6 +8,8 @@
 </td>
 } @if(nota().permissaoExclusao) {
 <td>
-  <button type="button" class="btn">Excluir</button>
+  <button type="button" class="btn" (click)="excluir(nota().id ?? 0)">
+    Excluir
+  </button>
 </td>
 } }

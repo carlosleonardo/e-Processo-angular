@@ -17,7 +17,7 @@ export class NotasComponent {
   });
 
   escopoNotas = signal('');
-  mostrarBotoes = signal(false);
+  mostrarBotoes = signal(true);
 
   servicoNotas = inject(NotasService);
   usuarioLogado = 'Carlos Leonardo';
