@@ -11,6 +11,12 @@ import { NotasService } from '../../servicos/notas.service';
   styleUrl: './notas.component.css',
 })
 export class NotasComponent {
+  notaAtual = signal<ModeloNota | undefined>(undefined);
+  aoEditarNota(nota: ModeloNota) {
+    this.editando.set(true);
+    this.notaAtual.set(nota);
+    this.formNota.patchValue({ textoNota: this.notaAtual()?.nota });
+  }
   servicoForm = inject(FormBuilder);
   formNota = this.servicoForm.group({
     textoNota: ['', Validators.required],
@@ -21,6 +27,7 @@ export class NotasComponent {
 
   servicoNotas = inject(NotasService);
   usuarioLogado = 'Carlos Leonardo';
+  editando = signal(false);
 
   incluir() {
     this.servicoNotas.incluir({
@@ -30,6 +37,20 @@ export class NotasComponent {
       permissaoAlteracao: true,
       permissaoExclusao: true,
     });
+    this.formNota.reset();
+  }
+  alterar() {
+    this.notaAtual.update((nota) => {
+      if (nota) {
+        nota.nota = this.formNota.value.textoNota || '';
+      }
+      return nota;
+    });
+    const nota = this.notaAtual();
+    if (nota) {
+      this.servicoNotas.alterar(nota);
+    }
+    this.editando.set(false);
     this.formNota.reset();
   }
 }

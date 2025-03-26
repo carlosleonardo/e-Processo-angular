@@ -4,7 +4,9 @@
 <td>{{ nota().autor }}</td>
 } @if(mostrarBotoes()) { @if(nota().permissaoAlteracao) {
 <td>
-  <button type="button" class="btn">Alterar</button>
+  <button type="button" class="btn" (click)="alterar()" [disabled]="editando()">
+    Alterar
+  </button>
 </td>
 } @if(nota().permissaoExclusao) {
 <td>

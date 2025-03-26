@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, input, output, signal } from '@angular/core';
 import { ModeloNota } from '../../modelos/nota';
 import { NotasService } from '../../servicos/notas.service';
 import { not } from 'rxjs/internal/util/not';
@@ -14,10 +14,13 @@ export class NotaComponent {
   mostrarBotoes = input.required<boolean>();
   escopoNota = input.required<string>();
   private servicoNotas = inject(NotasService);
+  aoEditarNota = output<ModeloNota>();
+  editando = input.required<boolean>();
 
-  alterar(id: number) {
-    this.servicoNotas.alterar(id);
+  alterar() {
+    this.aoEditarNota.emit(this.nota());
   }
+
   excluir(id: number) {
     this.servicoNotas.excluir(id);
   }

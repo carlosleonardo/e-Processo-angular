@@ -23,9 +23,9 @@
             class="btn"
             [disabled]="formNota.invalid"
             form="form1"
-            (click)="incluir()"
+            (click)="editando() ? alterar() : incluir()"
           >
-            Incluir
+            {{ editando() ? "Alterar" : "Incluir" }}
           </button>
         </td>
       </tr>
@@ -52,6 +52,8 @@
         [nota]="nota"
         [mostrarBotoes]="mostrarBotoes()"
         [escopoNota]="escopoNotas()"
+        (aoEditarNota)="aoEditarNota(nota)"
+        [editando]="editando()"
       ></tr>
       }
     </tbody>

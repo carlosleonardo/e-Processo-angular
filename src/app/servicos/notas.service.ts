@@ -14,8 +14,11 @@ export class NotasService {
     console.log(`Incluída nota ${nota.nota} com id=${this.idNovo}`);
     this.notas.update((notas) => [...notas, nota]);
   }
-  alterar(id: number) {
-    console.log(`Alterada nota ${id}`);
+  alterar(nota: ModeloNota) {
+    console.log(`Alterada nota ${nota.id}`);
+    this.notas.update((notas) =>
+      notas.map((nota) => (nota.id === nota.id ? { ...nota, ...nota } : nota))
+    );
   }
   excluir(id: number) {
     console.log(`Excluída nota: ${id}`);
