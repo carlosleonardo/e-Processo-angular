@@ -6,7 +6,7 @@ import { ModeloNota } from '../modelos/nota';
 })
 export class NotasService {
   private idNovo: number = 0;
-  notas = signal<ModeloNota[]>([]);
+  private notas = signal<ModeloNota[]>([]);
 
   incluir(nota: ModeloNota) {
     this.idNovo += 1;
@@ -26,5 +26,9 @@ export class NotasService {
   }
   obterPorId(id: number): ModeloNota | undefined {
     return this.notas().find((n) => n.id === id);
+  }
+
+  get Notas(): Signal<ModeloNota[]> {
+    return this.notas.asReadonly();
   }
 }
