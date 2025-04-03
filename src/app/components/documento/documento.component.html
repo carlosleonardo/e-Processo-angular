@@ -1,0 +1,20 @@
+<td style="text-align: left"><input type="checkbox" /></td>
+<td style="text-align: left">{{ documento().nome }}</td>
+<td style="text-align: center">{{ documento().copiaSimples }}</td>
+<td style="text-align: center">
+  <a href="#" title="Abrir documento">
+    <img src="img/Diversos/lupa.png" />
+  </a>
+</td>
+<td style="text-align: center">
+  @if(documento().codigoDocNPG !== 0) {
+  <a href="#" title="Clique para download">
+    <img style="cursor: pointer" src="img/zip.png" />
+  </a>
+  } &nbsp;
+  <a href="#" title="Palavras-Chave">
+    <div style="text-align: center">
+      <img src="img/Diversos/palavraChave.png" />
+    </div>
+  </a>
+</td>
