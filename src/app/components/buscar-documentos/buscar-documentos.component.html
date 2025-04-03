@@ -1,1 +1,29 @@
-<p>buscar-documentos works!</p>
+<form [formGroup]="formBuscar">
+  <table>
+    <tbody>
+      <tr>
+        <td class="tr">
+          <label for="numeroProcesso">Número do Processo: </label>
+        </td>
+        <td>
+          <input
+            type="text"
+            id="numeroProcesso"
+            name="numeroProcesso"
+            formControlName="textoBusca"
+            placeholder="Formato ddddd.dddddd/dddd-dd"
+            pattern="^\d{5}\.\d{6}\/\d{4}-\d{2}$"
+            maxlength="20"
+            required
+            (change)="aoMudarNumeroProcesso($event)"
+          />
+        </td>
+        <td>
+          <button type="submit" class="btn" [disabled]="formBuscar.invalid">
+            Buscar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
