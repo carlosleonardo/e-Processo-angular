@@ -20,8 +20,10 @@ export class BuscarDocumentosComponent {
       this.numeroProcessoNaoFormatado.set(
         this.formBuscar.value.textoBusca?.replace(/\D/g, '')
       );
-      console.log(this.numeroProcessoNaoFormatado());
     }
-    console.log(this.formBuscar.value.textoBusca);
+  }
+
+  buscarDocumentos() {
+    console.log('Número do processo: ', this.numeroProcessoNaoFormatado());
   }
 }

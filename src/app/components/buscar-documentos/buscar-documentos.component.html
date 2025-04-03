@@ -19,7 +19,12 @@
           />
         </td>
         <td>
-          <button type="submit" class="btn" [disabled]="formBuscar.invalid">
+          <button
+            type="submit"
+            class="btn"
+            [disabled]="formBuscar.invalid"
+            (click)="buscarDocumentos()"
+          >
             Buscar
           </button>
         </td>
