@@ -2,7 +2,11 @@
   <thead>
     <tr>
       <th style="text-align: left; width: 5%">
-        <input type="checkbox" />Todos
+        <input
+          type="checkbox"
+          [checked]="selecionarTodos()"
+          (change)="aoMarcarTodas()"
+        />Todos
       </th>
       <th style="text-align: left; width: 25%">Documentos</th>
       <th style="text-align: center; width: 10%">Cópia Simples</th>
@@ -13,7 +17,11 @@
   <tbody>
     @for(documento of documentos(); track documento.id) {
     <tr [className]="$odd ? 'tr' : ''">
-      <app-documento [documento]="documento" />
+      <app-documento
+        [documento]="documento"
+        [selecionado]="selecionarTodos()"
+        (aoSelecionar)="aoSelecionar(documento.id)"
+      />
     </tr>
     }
   </tbody>

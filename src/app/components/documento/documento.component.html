@@ -1,4 +1,10 @@
-<td style="text-align: left"><input type="checkbox" /></td>
+<td style="text-align: left">
+  <input
+    type="checkbox"
+    (change)="aoMarcar(documento().id)"
+    [checked]="selecionado()"
+  />
+</td>
 <td style="text-align: left">{{ documento().nome }}</td>
 <td style="text-align: center">{{ documento().copiaSimples }}</td>
 <td style="text-align: center">
