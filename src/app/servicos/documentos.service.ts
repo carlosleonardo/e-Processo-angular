@@ -30,6 +30,18 @@ const listaDocumentos: ModeloDocumento[] = [
 })
 export class DocumentosService {
   private documentos = signal<ModeloDocumento[]>(listaDocumentos);
+
+  constructor() {
+    this.documentos.update((documentos) =>
+      documentos.map((documento) => {
+        if (documento.copiaSimples !== 'S' && documento.copiaSimples !== 'N') {
+          return { ...documento, copiaSimples: 'NI' };
+        }
+        return documento;
+      })
+    );
+  }
+
   get Documentos(): Signal<ModeloDocumento[]> {
     return this.documentos.asReadonly();
   }
