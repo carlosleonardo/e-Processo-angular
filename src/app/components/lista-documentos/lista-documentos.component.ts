@@ -42,6 +42,19 @@ export class ListaDocumentosComponent implements OnInit {
     if (!existemDocumentos) {
       alert('Não há documentos juntados ao processo selecionado.');
     }
+
+    // Inicializa todos os documentos para não selecionados
+    this.documentos().forEach((documento) => {
+      const index = this.selecionados().findIndex(
+        (selecionado) => selecionado.id === documento.id
+      );
+      if (index === -1) {
+        this.selecionados.update((selecionados) => [
+          ...selecionados,
+          { id: documento.id, checked: false },
+        ]);
+      }
+    });
   }
 
   aoMarcarTodas() {
@@ -61,7 +74,6 @@ export class ListaDocumentosComponent implements OnInit {
       if (index !== -1) {
         selecionados[index].checked = !selecionados[index].checked;
       } else {
-        //selecionados.push({ id, checked: true });
         selecionados = [
           ...selecionados, // Adiciona o novo selecionado à lista
           { id, checked: true },
@@ -69,5 +81,20 @@ export class ListaDocumentosComponent implements OnInit {
       }
       return selecionados;
     });
+    const todosSelecionados = this.selecionados().every(
+      (selecionado) => selecionado.checked
+    );
+    this.selecionarTodos.set(todosSelecionados);
+  }
+
+  obterSelecionadoPeloId(id: number | undefined) {
+    const index = this.selecionados().findIndex(
+      (selecionado) => selecionado.id === id
+    );
+    if (index !== -1) {
+      return this.selecionados()[index].checked;
+    } else {
+      return false;
+    }
   }
 }

@@ -19,7 +19,7 @@
     <tr [className]="$odd ? 'tr' : ''">
       <app-documento
         [documento]="documento"
-        [selecionado]="selecionarTodos()"
+        [selecionado]="obterSelecionadoPeloId(documento.id)"
         (aoSelecionar)="aoSelecionar(documento.id)"
       />
     </tr>
