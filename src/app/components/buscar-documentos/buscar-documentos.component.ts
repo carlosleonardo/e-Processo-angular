@@ -1,4 +1,11 @@
-import { Component, inject, signal } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  inject,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -7,12 +14,16 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
   templateUrl: './buscar-documentos.component.html',
   styleUrl: './buscar-documentos.component.css',
 })
-export class BuscarDocumentosComponent {
+export class BuscarDocumentosComponent implements AfterViewInit {
+  ngAfterViewInit(): void {
+    this.numeroProcesso()?.nativeElement.focus();
+  }
   private servicoForm = inject(FormBuilder);
   formBuscar = this.servicoForm.group({
     textoBusca: ['', [Validators.required]],
   });
   numeroProcessoNaoFormatado = signal<string | undefined>('');
+  numeroProcesso = viewChild<ElementRef>('numeroProcesso');
   aoMudarNumeroProcesso(evento: Event) {
     const elemento = evento.target as HTMLInputElement;
     const valor = elemento.value;
