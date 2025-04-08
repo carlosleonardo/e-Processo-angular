@@ -1,4 +1,11 @@
-import { Component, inject, signal } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  inject,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { ModeloNota } from '../../modelos/nota';
 import { NotaComponent } from '../nota/nota.component';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -10,7 +17,7 @@ import { NotasService } from '../../servicos/notas.service';
   templateUrl: './notas.component.html',
   styleUrl: './notas.component.css',
 })
-export class NotasComponent {
+export class NotasComponent implements AfterViewInit {
   notaAtual = signal<ModeloNota | undefined>(undefined);
   aoEditarNota(nota: ModeloNota) {
     this.editando.set(true);
@@ -29,6 +36,10 @@ export class NotasComponent {
   usuarioLogado = 'Carlos Leonardo';
   editando = signal(false);
 
+  nota = viewChild<ElementRef>('nota');
+  ngAfterViewInit(): void {
+    this.nota()?.nativeElement.focus();
+  }
   incluir() {
     this.servicoNotas.incluir({
       nota: this.formNota.value.textoNota || '',
