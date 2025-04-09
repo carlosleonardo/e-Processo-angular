@@ -15,14 +15,14 @@ interface Selecionado {
 })
 export class ListaDocumentosComponent implements OnInit {
   documentos = input.required<ModeloDocumento[]>();
-  contador = computed(
-    () =>
-      this.documentos().filter(
-        (documento) =>
-          documento.nome.toLocaleLowerCase() !== 'ficha de identificação' &&
-          documento.nome.toLocaleLowerCase() !== 'termo de desentranhamento'
-      ).length
+  documentosValidos = computed(() =>
+    this.documentos().filter(
+      (documento) =>
+        documento.nome.toLocaleLowerCase() !== 'ficha de identificação' &&
+        documento.nome.toLocaleLowerCase() !== 'termo de desentranhamento'
+    )
   );
+  contador = computed(() => this.documentosValidos().length);
   selecionarTodos = signal(false);
   selecionados = signal<Selecionado[]>([]);
 
@@ -44,7 +44,7 @@ export class ListaDocumentosComponent implements OnInit {
     }
 
     // Inicializa todos os documentos para não selecionados
-    this.documentos().forEach((documento) => {
+    this.documentosValidos().forEach((documento) => {
       const index = this.selecionados().findIndex(
         (selecionado) => selecionado.id === documento.id
       );

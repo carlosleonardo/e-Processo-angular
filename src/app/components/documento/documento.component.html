@@ -1,9 +1,12 @@
 <td style="text-align: left">
+  @if(documento().nome.toLocaleLowerCase() !== 'ficha de identificação') {
   <input
     type="checkbox"
     (change)="aoMarcar(documento().id)"
     [checked]="selecionado()"
   />
+
+  }
 </td>
 <td style="text-align: left">{{ documento().nome }}</td>
 <td style="text-align: center">{{ documento().copiaSimples }}</td>
