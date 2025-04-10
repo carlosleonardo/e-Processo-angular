@@ -3,7 +3,7 @@ import { ModeloDocumento } from '../../modelos/documento.modelo';
 import { DocumentoComponent } from '../documento/documento.component';
 import { BotaoCopiarComponent } from '../botao-copiar/botao-copiar.component';
 
-interface Selecionado {
+export interface Selecionado {
   id: number | undefined;
   checked: boolean;
 }
