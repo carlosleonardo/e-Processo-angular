@@ -33,7 +33,7 @@ export class ListaDocumentosComponent implements OnInit {
     }
     if (this.documentos().length > 0) {
       const index = this.documentos().findIndex((documento) => {
-        documento.nome.toLocaleLowerCase() === 'ficha de identificação';
+        return documento.nome.toLocaleLowerCase() === 'ficha de identificação';
       });
       if (index !== -1 && this.documentos().length === 1) {
         existemDocumentos = false;
